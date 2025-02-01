@@ -1,57 +1,88 @@
-package com.matheus.aulacomponenteslistagenscolecoes.teste
-
 data class Produto(
     var nome: String,
     var preco: Double
-) {
+){
 
-    fun desativar() {
-        println("Produto $nome com preço: $preco foi desativado")
+    fun desativar(){
+        println( "Produto $nome com preço: $preco foi desativado" )
     }
 
 }
 
-fun salvarproduto(produto: Produto) {
+fun salvarProduto( produto: Produto ){
 
 }
+
+class AlertaMensagem {
+
+    fun configurarTitulo( titulo: String ) = println(titulo)
+    fun configurarDescricao( descricao: String ) = println(descricao)
+
+    fun configurarCancelar() = println("Ação de cancelar")
+    fun configurarConfirmar() = println("Ação de confirmar")
+
+}
+
 fun main() {
 
-    var produto: Produto? = null
+    val alertaMensagem = AlertaMensagem()
+    /*alertaMensagem.configurarTitulo("Confirmar salvar?")
+    alertaMensagem.configurarDescricao("Você tem certeza...")
+    alertaMensagem.configurarCancelar()
+    alertaMensagem.configurarConfirmar()*/
 
-    produto = Produto("Notebook", 1200.00)
+    /*alertaMensagem.apply {
+        configurarTitulo("Confirmar salvar?")
+        configurarDescricao("Você tem certeza...")
+        configurarCancelar()
+        configurarConfirmar()
+    }*/
 
-    produto.run { desativar() }
+    val lista = listOf("jamilton", "ana", "pedro")
 
-    /*
-    if ( produto != null) {
+    lista
+        .map { it.uppercase() }
+        .run {
+            println(this)
+        }
+
+    /*var produto: Produto? = null
+
+
+    //Usuário é que pode escolher ou não um produto
+    produto = Produto("Notebook", 1200.00)*/
+
+    /*produto?.let { produto ->
+        salvarProduto(produto)
+        produto
+    }*/
+
+    /*produto?.run {
+        desativar()
+    }*/
+
+    /*val novoObjeto = with( produto ){
+       desativar()
+       this
+    }*/
+
+    /*if( produto != null ){
         produto.preco = 1100.00
-        salvarproduto( produto )
-    }
-     */
+        salvarProduto( produto )
+    }*/
 
-    /*
-    produto?.let {  item ->
-        item.preco = 1100.00
-        item.nome = "iPad"
-        salvarproduto( produto )
-    }
-     */
-
-    /*
-    val novoProduto = produto?.let {
+    /*val novoProduto = produto?.let {
         it.preco = 1100.00
-        //salvarproduto( produto )
+        //salvarProduto( produto )
         it
-    }
-     */
-    /*
-    produto?.let {
+    }*/
+    /*produto?.let {
         it.preco = 1100.00
-        salvarproduto( it )
+        salvarProduto(it)
     }
 
     println( produto?.nome )
-    println( produto?.preco )
-     */
+    println( produto?.preco )*/
+
 
 }
